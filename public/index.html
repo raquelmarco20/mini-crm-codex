@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MINI CRM</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="crm-shell" aria-labelledby="page-title">
+        <header class="page-header">
+          <h1 id="page-title">MINI CRM</h1>
+        </header>
+
+        <form id="lead-form" class="lead-form">
+          <div class="field">
+            <label for="name">Nombre</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+
+          <div class="field">
+            <label for="source">Fuente</label>
+            <input id="source" name="source" type="text" />
+          </div>
+
+          <div class="field">
+            <label for="status">Estado</label>
+            <select id="status" name="status">
+              <option value="nuevo">Nuevo</option>
+              <option value="contactado">Contactado</option>
+              <option value="perdido">Perdido</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button id="submit-button" type="submit">Añadir lead</button>
+            <button id="cancel-edit-button" class="secondary-button" type="button" hidden>
+              Cancelar
+            </button>
+          </div>
+          <p id="form-message" class="form-message" role="status"></p>
+        </form>
+
+        <section class="table-section" aria-label="Listado de leads">
+          <div class="table-toolbar" aria-label="Filtros de leads">
+            <div class="field">
+              <label for="lead-search">Buscar</label>
+              <input
+                id="lead-search"
+                type="search"
+                placeholder="Nombre o email"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="field">
+              <label for="status-filter">Estado</label>
+              <select id="status-filter">
+                <option value="">Todos</option>
+                <option value="nuevo">Nuevo</option>
+                <option value="contactado">Contactado</option>
+                <option value="perdido">Perdido</option>
+              </select>
+            </div>
+
+            <p id="visible-leads-count" class="lead-count" aria-live="polite">
+              0 leads visibles
+            </p>
+
+            <a
+              id="export-leads-button"
+              class="download-button"
+              href="/leads/export.csv"
+              download="leads.csv"
+            >
+              Descargar CSV
+            </a>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Fuente</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="leads-table-body">
+              <tr>
+                <td colspan="5">Cargando leads...</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

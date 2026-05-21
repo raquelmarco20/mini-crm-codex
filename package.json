@@ -1,0 +1,22 @@
+{
+  "name": "mini-crm-codex",
+  "version": "1.0.0",
+  "description": "API sencilla para gestionar leads de un mini CRM.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "crm",
+    "leads",
+    "express",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.3",
+    "sqlite3": "^6.0.1"
+  }
+}
